@@ -1,0 +1,34 @@
+#inputs {
+    background-color: antiquewhite;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 10px auto 0;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#inputs input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid;
+}
+
+#inputs input::placeholder {
+    color: rgb(54, 53, 53);
+}
+
+#inputs button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: white;
+    border: 1px solid;
+}
+
+#inputs button:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
