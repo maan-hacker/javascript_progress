@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Train: Data and APIs Project 1</title>
+</head>
+<body>
+    <script>
+        // Call the function 
+        getData();
+
+        async function getData() { // async function to get data
+            const response = await fetch('ZonAnn.Ts+dSST.csv'); // fetch the csv file from the given path while waiting until completion of fetching
+            const data = await response.text(); // Convert the response into text while waiting until completion of code
+
+            const table = data.split('\n').slice(1);
+            table.forEach(row => {
+                const cols = row.split(',');
+                const year = cols[0];
+                const temp = cols[1];
+                console.log(year, temp);
+            });
+        }
+    </script>
+    
+</body>
+</html>

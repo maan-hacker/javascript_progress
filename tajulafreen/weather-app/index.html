@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    
+    <div class="weather-app night-clear">
+        <div class="weather-container">
+
+            <!-- Weather Display Section  -->
+             <div class="weather-information">
+                <h1 id="temp" class="temp">23°C</h1>
+                <div class="column">
+                    <h1 id="city-name" class="city">Kadapa</h1>
+                    <h4 id="date-time" class="time">2024-02-06 3:59</h4>
+                </div>
+                <img alt="weather icon" id="icon" class="icon">
+             </div>
+
+             <!-- Interactive Sidebar/ Suggestions Section  -->
+              <div class="weather-suggestions">
+                <!-- Search Bar -->
+                 <div class="search-box"></div>
+                    <input type="text" class="input" id="input" placeholder="Enter city name">
+                    <button class="search" id="btn"><i class="fa fa-search"></i></button>
+                    </div>
+
+                <!-- City Shortcuts -->
+                <ul class="city-list">
+                    <li>
+                        <a class="location" id="getlocation">
+                            <i class="fa fa-location-arrow">Get Weather of your city</i>
+                        </a>
+                    </li>
+                    <li class="city">London</li>
+                    <li class="city">Kabul</li>
+                    <li class="city">Ottawa</li>
+                    <li class="city">California</li>
+                </ul>
+
+               <!-- Extended Weather Details  -->
+                <h3 class="weather-de">Weather details</h3>
+                <div class="weather-details">
+                    <div class="row">
+                        <p class="country">Country</p>
+                        <span id="country" class="country">India</span>
+                    </div>
+                    <div class="row">
+                        <p class="condition">condition</p>
+                        <span id="condition2" class="condition">Clear</span>
+                    </div>
+                    <div class="row">
+                        <p class="humidity">Humidity</p>
+                        <span id="humidity" class="humidity">humidity</span>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Train: Data/APIs 1</title>
+</head>
+<body>
+
+    <h1>Fetch a Poem</h1>
+    <p id="poem"></p>
+    <script>
+        console.log('about to fetch a poem'); // message to the console
+        
+        // making an async function for text fetching
+        async function catchPoem() {
+            const response = await fetch('poem.txt');  // store the fetched text of given path in a variable by waiting untill completion
+            return await response.text(); // return the text data of the response by waiting untill completion
+        }
+
+        catchPoem() // Call the async function
+            .then(poem => { // in successive case take the return of the async function as argument and process it
+                document.getElementById('poem').innerText = poem;
+                console.log('yay');
+            })
+            .catch(error => {  // take the returned error as argument and process it
+                console.log('error!');
+                console.error(error);
+            })
+    </script>
+    
+</body>
+</html>

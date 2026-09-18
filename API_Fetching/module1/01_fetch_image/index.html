@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Train: Data/APIs 1</title>
+</head>
+<body>
+
+    <h1>Fetch a Rainbow</h1>
+    <img src="" alt="Rainbow image" id="rainbow" width="400">
+
+    <script>
+        console.log('about to fetch a rainbow'); // console the message
+
+
+        async function catchRainbow() { // async function for image fetching
+            const response = await fetch('rainbow.jpg'); // store the fetched image in a variable as response by waiting untill completion of execution
+            const blob = await response.blob();   // Convert the fetched response into blob while waiting until completion of execution
+            document.getElementById('rainbow').src = URL.createObjectURL(blob); // make the url out of the blob by passing it as argument to the in-built function 'URL.createObjectURL()'    
+        }
+
+        catchRainbow() // Call the async function
+            .then(response => {
+                console.log('yay');
+            })
+            .catch(error => {
+                console.log('error!');
+                console.error(error);
+            });
+    </script>
+    
+</body>
+</html>
