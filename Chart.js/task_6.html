@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Practice</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #inputs {
+            background-color: antiquewhite;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            margin: 10px auto 0;
+            box-sizing: border-box;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #inputs input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid;
+        }
+
+        #inputs input::placeholder {
+            color: rgb(54, 53, 53);
+        }
+
+        #inputs button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: white;
+            border: 1px solid;
+        }
+
+        #inputs button:hover {
+            background-color: black;
+            color: white;
+            transition: 0.3s;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Line Chart with two lines  -->
+    <!-- In datasets array each object represents a line -->
+
+    
+
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+    <div id="inputs">
+        <input type="text" id="skill" placeholder="Enter The skill"><br/>
+        <input type="number" id="score" placeholder="Enter the score" min="0" max="100"><br/>
+        <button id="btn">Add Skill</button>
+    </div>
+
+<script>
+    const skills = ['HTML', 'CSS', 'JavaScript', 'PHP', 'Java']; // lables
+    const scores = [80, 70, 60, 50, 50]; // data
+
+    const friendScores = [60, 85, 75, 65, 80]; // Giving the friend score's a variable
+
+    const data = { // setup code of chart 
+        labels: skills,
+        datasets: [
+            {
+            label: 'My Skills',
+            data: scores,
+            },
+
+            {
+                label: "My Friend's Skills",
+                data: friendScores,
+            }
+    ]
+    }
+
+
+
+    const ctx = document.getElementById('myChart');
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: "Skill Level",
+                        color: '#333',
+                        font: {
+                            size: 14,
+                            weight: 'bold'
+                        }
+                    },
+
+                    max: 100    // Forces the Y-axis to end exacty at 100
+                }
+            },
+
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Programming Skills Comparison'
+                }
+            }
+        }
+    });
+
+    
+    // Create function for adding skill
+    function addSkill() {
+        const skillValue = Number(document.getElementById('skill').value);
+        const scoreValue = document.getElementById('score').value;
+
+        // condition so that same skill can't be added
+        if (skills.includes(skillValue)) {
+            alert('Skill already added');
+            return;
+        }
+        if (skillValue === '') {
+            alert('Skill input can not be empty');
+            return;
+        }
+
+        if (scoreValue === '') {
+            alert('Score can not be empty.');
+            return;
+        }
+        
+        if (scoreValue < 0 || scoreValue > 100) {
+            alert('Enter withing range of 0 - 100.');
+            return;
+        }
+
+
+
+        skills.push(skillValue);  // Add same skill for both
+        scores.push(scoreValue);  // Add the skill for me
+
+        friendScores.push(70);    // Always add score '70' for friend
+
+        // update the chart
+        myChart.update();
+
+        // also make the input values empty again
+        document.getElementById('skill').value = '';
+        document.getElementById('score').value = '';
+        
+    }
+
+
+    // Invoke the function by adding event listener
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', addSkill);
+
+    // The range of values failed
+
+</script>
+
+</body>
+</html>
