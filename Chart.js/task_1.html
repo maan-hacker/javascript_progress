@@ -7,6 +7,9 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    // BAR CHART
+
+
     <div>
         <canvas id="myChart"></canvas>
     </div>
@@ -14,10 +17,14 @@
 
 <script>
     const skills = ['HTML', 'CSS', 'JavaScript', 'PHP', 'Java']; // lables
-    const scores = [80, 70, 60, 50]; // data
+    const scores = [80, 70, 60, 50, 50]; // data
 
     const data = { // setup code of chart 
-        
+        labels: skills,
+        datasets: [{
+            label: 'My First Dataset',
+            data: scores,
+        }]
     }
 
 
@@ -25,14 +32,7 @@
     const ctx = document.getElementById('myChart');
     new Chart(ctx, {
         type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-            }]
-        },
+        data: data,
         options: {
             scales: {
                 y: {
