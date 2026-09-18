@@ -7,7 +7,8 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Line Chart  -->
+    <!-- Line Chart with two lines  -->
+    <!-- In datasets array each object represents a line -->
 
 
     <div>
@@ -21,10 +22,17 @@
 
     const data = { // setup code of chart 
         labels: skills,
-        datasets: [{
-            label: 'My First Dataset',
+        datasets: [
+            {
+            label: 'My Skills',
             data: scores,
-        }]
+            },
+
+            {
+                label: "My Friend's Skills",
+                data: [60, 85, 75, 65, 80],
+            }
+    ]
     }
 
 
