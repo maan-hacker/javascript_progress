@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Practice</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Line Chart with two lines  -->
+    <!-- In datasets array each object represents a line -->
+
+
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+
+<script>
+    const skills = ['HTML', 'CSS', 'JavaScript', 'PHP', 'Java']; // lables
+    const scores = [80, 70, 60, 50, 50]; // data
+
+    const data = { // setup code of chart 
+        labels: skills,
+        datasets: [
+            {
+            label: 'My Skills',
+            data: scores,
+            },
+
+            {
+                label: "My Friend's Skills",
+                data: [60, 85, 75, 65, 80],
+            }
+    ]
+    }
+
+
+
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: "Skill Level",
+                        color: '#333',
+                        font: {
+                            size: 14,
+                            weight: 'bold'
+                        }
+                    },
+
+                    max: 100,    // Forces the Y-axis to end exacty at 100
+                }
+            },
+
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Programming Skills Comparison'
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
