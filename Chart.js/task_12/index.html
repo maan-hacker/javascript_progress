@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Analytics Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Product Analytics Dashboard</h1>
+    <p id="status">Loading products...</p>
+
+    <div class="stats-container">
+        <div>
+        <h2>Total Products</h2>
+        <p id="productCount"></p>
+    </div>
+
+    <div>
+        <h2>Average Price</h2>
+        <p id="averagePrice"></p>
+    </div>
+
+    <div>
+        <h2>Average Rating</h2>
+        <p id="averageRating"></p>
+    </div>
+    </div>
+
+    <hr>
+
+    <div id="chart-card">
+        <h2>Product Prices</h2>
+
+        <label for="category">Filter by category:</label>
+
+        <select id="category">
+            <option value="all">All Products</option>
+        </select>
+
+        <canvas id="priceChart"></canvas>
+    </div>
+
+    <hr>
+
+    <div id="chart-card">
+        <h2>Products by Category</h2>
+
+        <canvas id="categoryChart"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
