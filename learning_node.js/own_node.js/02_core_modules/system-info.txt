@@ -1,0 +1,5 @@
+
+    Platform: linux
+    Architecture: x64
+    CPU Cores: 8
+    Home Directory: /home/muhammad-usman

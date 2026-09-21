@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node API Test</title>
+</head>
+<body>
+
+    <button id="loadProducts">Load Products</button>
+
+    <button id="addProduct">Add Product</button>
+
+    <script>
+        const button = document.getElementById('loadProducts');
+        const addBtn = document.getElementById('addProduct');
+
+        // get request for loading products
+        button.addEventListener('click', async () => {
+            const response = await fetch("http://localhost:3000/products");
+            const products = await response.json();
+
+            console.log(products);
+        })
+
+        // post request for adding a product
+        addBtn.addEventListener('click', async () => {
+            const response = await fetch("http://localhost:3000/products", {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    name: "Monitor",
+                    price: 300
+                })
+            });
+
+            const result = await response.text();
+            console.log(result);
+        })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,19 @@
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    return a / b;
+}
+
+module.exports = {
+    subtract,
+    multiply,
+    divide,
+};
+
+// Use object notation when exporting multiple functions
